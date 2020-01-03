@@ -48,8 +48,12 @@
         </div>
     </header>
     <main>
+        <div id="intro">
+            <!-- <h1 id="title">Particle Polymorphism</h1>
+            <a href="https://www.youtube.com/watch?v=qqYOYIVrso0">Inspiration link</a> -->
+        </div>
+
         <div id="container">
-            <h1 id="title">Particle Polymorphism</h1>
             <div id="particle-container">
                 <div class="particle square"></div>
                 <div class="particle circle"></div>
@@ -57,24 +61,24 @@
             </div>
             <div id="control-panel">
                 <div id="radio-buttons">
-                    <div class="radio-btn">
-                        <input type="radio" id="huey" name="drone" value="huey" checked>
-                        <label for="huey">Square</label>
-                    </div>
+                    <label class="radio" for="square">Square
+                        <input type="radio" id="square" name="shape" value="square" checked>
+                        <span class="checkmark"></span>
+                    </label>
 
-                    <div class="radio-btn">
-                        <input type="radio" id="dewey" name="drone" value="dewey">
-                        <label for="dewey">Circle</label>
-                    </div>
+                    <label class="radio" for="circle">Circle
+                        <input type="radio" id="circle" name="shape" value="circle">
+                        <span class="checkmark"></span>
+                    </label>
 
-                    <div class="radio-btn">
-                        <input type="radio" id="louie" name="drone" value="louie">
-                        <label for="louie">Triangle</label>
-                    </div>
+                    <label class="radio" for="triangle">Triangle
+                        <input type="radio" id="triangle" name="shape" value="triangle">
+                        <span class="checkmark"></span>
+                    </label>
                 </div>
                 <div class="button-set">
                     <button class="btn">-</button>
-                    <button class="btn">+</button>
+                    <button onclick="addShape()" class="btn">+</button>
                 </div>
             </div>
         </div>

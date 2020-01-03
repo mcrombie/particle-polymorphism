@@ -3,10 +3,14 @@
 /* --------------------------------- */
 
 :root{
-    --primary-color:#f1c40f;
-    --secondary-color:#e67e22;
-    --tertiary-color:#d8e0db;
+    --primary-color:#636e72;
+    --secondary-color:#636e72;
+    --tertiary-color:#b2bec3;
     --shadow-color:grey;
+    --particle-color:#2d3436;
+
+    --shape-size:2rem;
+    --shape-size-half:1rem;
 }
 
 *{
@@ -24,13 +28,23 @@ html{
 /* STRUCTURE */
 /* --------------------------------- */
 
-#container{
-    margin-top:15rem;
-    width:100%;
-    height:80vh;
+#intro{
+    margin-top:10rem;
 }
 
+#container{
+    display:flex;
+    flex-direction: column;
+    width:100%;
+    height:75vh;
+}
+
+/* --------------------------------- */
+/* PARTICLES */
+/* --------------------------------- */
+
 #particle-container{
+    position:relative;
     width:70%;
     height:70rem;
     margin: 3rem auto 5rem auto;
@@ -41,6 +55,30 @@ html{
     
 }
 
+.particle{
+    position:absolute;
+    width:var(--shape-size);
+    height:var(--shape-size);
+    background-color:var(--particle-color);
+
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+
+
+.circle{
+    border-radius: 50%;
+}
+
+.triangle{
+    background-color:var(--tertiary-color);
+    width:0rem;
+    height:0rem;
+    border-left: var(--shape-size-half) solid transparent;
+	border-right: var(--shape-size-half) solid transparent;
+	border-bottom: var(--shape-size) solid var(--particle-color);
+}
 /* --------------------------------- */
 /* CONTROL PANEL */
 /* --------------------------------- */
@@ -75,4 +113,136 @@ html{
 .btn{
     width:5rem;
     height:3rem;
+    text-decoration: none;
+    background-color: var(--primary-color);
+    border: none;
+    box-shadow:.1rem .2rem var(--shadow-color);
+    border-radius: 15px;
+    cursor: pointer;
+    transition:all .3s;
+}
+.btn:hover{
+    background-color: var(--particle-color);
+}
+
+.btn:active {
+    transform: translateY(4px);
+  }
+
+/* --------------------------------- */
+/* RADIO BUTTONS */
+/* --------------------------------- */
+.radio {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .radio input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  /* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .radio:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .radio input:checked ~ .checkmark {
+    background-color: rgb(16, 81, 134);
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .radio input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .radio .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+/* --------------------------------- */
+/* MEDIA QUERIES */
+/* --------------------------------- */
+
+
+@media (min-device-width: 600px) {
+
+}
+
+@media (min-device-width: 800px) {
+    #container{
+        flex-direction: row;
+    }
+    #particle-container{
+        width:70%;
+        height:42rem;
+        margin: 3rem auto 5rem auto;
+        background-color:var(--tertiary-color);
+        border: 1rem solid var(--primary-color);
+        border-radius: 1rem;
+        box-shadow:1rem 2rem var(--shadow-color);
+        
+    }
+    #control-panel{
+        display:flex;
+        flex-direction: column;
+        justify-content: space-around;
+        
+        width:20%;
+        height:40rem;
+        margin:auto;
+        background-color:var(--tertiary-color);
+        border: 1rem solid var(--secondary-color);
+        border-radius: 1rem;
+        box-shadow:1rem 2rem var(--shadow-color);
+    
+        font-size:2rem;
+    }
+
+    #radio-buttons{
+        flex-direction:column;
+    }
+}
+
+@media (max-device-width: 1024px) {
+
 }
